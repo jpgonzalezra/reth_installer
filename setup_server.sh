@@ -2,7 +2,7 @@
 set -e
 
 source "${BASH_SOURCE%/*}/scripts/lib/path.sh"
-parsed_dir=$(get_parsed_dir)
+parsed_dir=$(get_project_root)
 
 # Ensure script is run as root
 if [[ "$EUID" -ne 0 ]]; then

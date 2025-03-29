@@ -2,8 +2,8 @@
 
 set -a
 
-source "${BASH_SOURCE%/*}/path.sh"
-parsed_dir=$(get_parsed_dir)
+source "${BASH_SOURCE%/*}/scripts/lib/path.sh"
+parsed_dir=$(get_project_root)
 
 # Load .env
 if [[ -f "${parsed_dir}/.env" ]]; then

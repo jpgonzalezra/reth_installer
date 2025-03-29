@@ -6,7 +6,7 @@ log() {
 }
 
 source "${BASH_SOURCE%/*}/scripts/lib/path.sh"
-parsed_dir=$(get_parsed_dir)
+parsed_dir=$(get_project_root)
 
 IFS="/" read -ra dir_array <<< "${current_directory#/}"  # Remove leading slash
 if [ ${#dir_array[@]} -eq 3 ] && [ "${dir_array[2]}" != "scripts" ]; then

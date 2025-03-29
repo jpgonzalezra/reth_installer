@@ -1,7 +1,7 @@
 #!/bin/bash
 
 source "${BASH_SOURCE%/*}/scripts/lib/path.sh"
-parsed_dir=$(get_parsed_dir)
+parsed_dir=$(get_project_root)
 
 source "${parsed_dir}/scripts/lib/load_variables.sh"
 source "${parsed_dir}/scripts/lib/get_os_arch.sh"
