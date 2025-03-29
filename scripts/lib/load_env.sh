@@ -2,7 +2,7 @@
 
 set -a
 
-source "${BASH_SOURCE%/*}/scripts/lib/path.sh"
+source "${BASH_SOURCE%/*}/path.sh"
 parsed_dir=$(get_project_root)
 
 # Load .env
