@@ -1,0 +1,10 @@
+
+.idea/*
+.idea
+*.txt
+.env
+ignore.txt
+.ignore/*
+.ignore
+examples.sh
+output.sh
