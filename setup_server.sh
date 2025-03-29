@@ -62,7 +62,7 @@ tar -xzf ${RETH_NAME} -C /$BASE_DIR/$NODE_CLIENT/
 rm ${RETH_NAME}
 
 # 10) Grab the right bins for lighthouse
-LIGHTHOUSE_NAME="lighthouse-v${LIGHTHOUSE_VERSION}-${ARCH_RAW}-unknown-linux-gnu-portable.tar.gz"
+LIGHTHOUSE_NAME="lighthouse-v${LIGHTHOUSE_VERSION}-${ARCH_RAW}-unknown-linux-gnu.tar.gz"
 LIGHTHOUSE_URL="https://github.com/sigp/lighthouse/releases/download/v${LIGHTHOUSE_VERSION}/${LIGHTHOUSE_NAME}"
 echo "Downloading lighthouse from ${LIGHTHOUSE_URL}"
 curl -LOs ${LIGHTHOUSE_URL}
