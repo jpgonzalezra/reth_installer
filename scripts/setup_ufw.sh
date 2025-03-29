@@ -34,7 +34,6 @@ for rule in "${PORT_RULES[@]}"; do
   echo "Allowing $port/$proto ($comment)"
   sudo ufw allow "$port/$proto" comment "$comment"
   sudo ufw allow from any to any port "$port" proto "$proto"
-  sudo ufw allow "${port}/${proto}6"
 done
 
 # Reload UFW and show status
