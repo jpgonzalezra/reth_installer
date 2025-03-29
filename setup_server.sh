@@ -72,8 +72,3 @@ if [[ ! -f "$LIGHTHOUSE_NAME" ]]; then
 fi
 tar -xzf ${LIGHTHOUSE_NAME} -C /$BASE_DIR/lighthouse/
 rm ${LIGHTHOUSE_NAME}
-
-# 11) Reboot the server
-echo "Rebooting the server in 5s..."
-sleep 5
-sudo reboot
