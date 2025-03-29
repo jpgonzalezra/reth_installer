@@ -8,3 +8,4 @@ ignore.txt
 .ignore
 examples.sh
 output.sh
+reth-latest.tar.zst
