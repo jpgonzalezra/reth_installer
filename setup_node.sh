@@ -8,13 +8,6 @@ log() {
 source "${BASH_SOURCE%/*}/scripts/lib/path.sh"
 parsed_dir=$(get_project_root)
 
-IFS="/" read -ra dir_array <<< "${current_directory#/}"  # Remove leading slash
-if [ ${#dir_array[@]} -eq 3 ] && [ "${dir_array[2]}" != "scripts" ]; then
-    parsed_dir="/${dir_array[0]}/${dir_array[1]}/${dir_array[2]}"
-else
-    parsed_dir="/${dir_array[0]}/${dir_array[1]}"
-fi
-
 # Define color and formatting variables
 GREEN='\033[1;32m'
 NC='\033[0m' # No Color

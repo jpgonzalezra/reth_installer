@@ -2,7 +2,7 @@
 set -e
 
 # Load dependencies
-source "${BASH_SOURCE%/*}/scripts/lib/path.sh"
+source "${BASH_SOURCE%/*}/lib/path.sh"
 parsed_dir=$(get_project_root)
 
 source "${parsed_dir}/scripts/lib/load_variables.sh"

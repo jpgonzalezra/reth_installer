@@ -2,7 +2,7 @@
 set -e
 
 # Detect base path
-source "${BASH_SOURCE%/*}/scripts/lib/path.sh"
+source "${BASH_SOURCE%/*}/lib/path.sh"
 parsed_dir=$(get_project_root)
 
 # Load environment variables
