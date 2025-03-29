@@ -10,11 +10,6 @@ if [[ "$EUID" -ne 0 ]]; then
     exit 1
 fi
 
-if [[ -z "$BASE_DIR" || -z "$NODE_CLIENT" || -z "$RETH_VERSION" || -z "$LIGHTHOUSE_VERSION" ]]; then
-    echo "Missing one or more required environment variables."
-    exit 1
-fi
-
 # 1) Update the system
 sudo apt-get update
 
@@ -30,6 +25,10 @@ chmod +x "setup_node.sh"
 
 # 4) Load the environment variables
 source "${parsed_dir}/scripts/lib/load_variables.sh"
+if [[ -z "$BASE_DIR" || -z "$NODE_CLIENT" || -z "$RETH_VERSION" || -z "$LIGHTHOUSE_VERSION" ]]; then
+    echo "Missing one or more required environment variables."
+    exit 1
+fi
 
 # 5) Source the script that returns OS and CPU architecture variables
 source "${parsed_dir}/scripts/lib/get_os_arch.sh"
