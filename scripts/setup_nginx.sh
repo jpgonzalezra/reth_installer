@@ -26,5 +26,5 @@ create_nginx_proxy "rpc-ws-proxy" 6009 8546 "proxy_http_version 1.1;
         proxy_set_header Connection \"upgrade\";"
 
 # Remove default config and reload Nginx
-sudo rm /etc/nginx/sites-enabled/default
+sudo rm -f /etc/nginx/sites-enabled/default
 sudo systemctl reload nginx

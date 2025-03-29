@@ -14,7 +14,7 @@ server {
         proxy_pass http://localhost:${target};
         proxy_set_header Host \$host;
         proxy_set_header X-Real-IP \$remote_addr;
-        ${extra_config}
+        $( [[ -n "$extra_config" ]] && echo "$extra_config" )
 
         # Basic Authentication
         auth_basic \"Restricted Content\";
