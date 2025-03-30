@@ -9,3 +9,5 @@ ignore.txt
 examples.sh
 output.sh
 reth-latest.tar.zst
+setup.log
+extract.log
