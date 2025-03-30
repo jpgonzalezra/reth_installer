@@ -15,7 +15,7 @@ sudo apt-get update
 
 # 2) Upgrade the system
 sudo apt-get upgrade -y
-sudo apt-get install unzip screen -y
+sudo apt-get install unzip screen lz4 -y
 
 # 3) Make another script executable
 for script in "${parsed_dir}/scripts/"*.sh; do

@@ -34,12 +34,13 @@ Follow these steps in the given order to set up the project:
 git clone git@github.com:jpgonzalezra/reth_installer.git
 ```
 
-2. Setup your .env
+2. Setup your .env (use .env.example)
 
 3. Run the following command to grant execute permissions to the setup_server.sh script:
 
 ```bash
 chmod +x setup_server.sh
+chmod +x setup_node.sh
 ```
 
 4. Execute the setup_server.sh script with administrative privileges:

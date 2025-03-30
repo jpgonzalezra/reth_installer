@@ -40,4 +40,4 @@ mkdir -p "$TARGET_PROJECT_ROOT"
 echo "Downloading merkle snapshot from:"
 echo "$SNAPSHOT_URL"
 
-curl -C - --http1.1 --retry 10 --retry-delay 15 -L "$SNAPSHOT_URL" -o reth-latest.tar.zst
+curl -C - --http1.1 --retry 10 --retry-delay 15 -L "$SNAPSHOT_URL" | tar -I lz4 -xvf - -C "$TARGET_PROJECT_ROOT"
