@@ -49,11 +49,27 @@ fi
 # 6) Download snapshots if needed
 if [[ $SYNC_FROM == "merkle" ]]; then
   echo -e "${ORANGE}${BOLD}Sync mode:${NC} ${BLUE}${SYNC_FROM}${NC}."
-  echo -e "${ORANGE}${BOLD}Downloading snapshots...${NORMAL}"
-  "${parsed_dir}/scripts/download_snapshot.sh"
-  echo -e "${GREEN}${BOLD}Snapshots Downloaded!${NORMAL}"
+
+  if [[ -f "$SNAPSHOT_PATH" ]]; then
+    echo -e "${GREEN}Using local snapshot: $SNAPSHOT_PATH${NC}"
+    SNAPSHOT_TO_EXTRACT="$SNAPSHOT_PATH"
+  else
+    echo -e "${ORANGE}${BOLD}Downloading snapshot...${NORMAL}"
+    "${parsed_dir}/scripts/download_snapshot.sh"
+    SNAPSHOT_TO_EXTRACT="reth-latest.tar.zst"
+    echo -e "${GREEN}${BOLD}Snapshot Downloaded!${NORMAL}"
+  fi
+
+  echo -e "${ORANGE}${BOLD}Extracting snapshot to:${NC} $TARGET_PROJECT_ROOT"
+  if ! command -v unzstd &> /dev/null; then
+    echo "unzstd could not be found. Please install zstd."
+    exit 1
+  fi
+  tar --use-compress-program=unzstd -xf "$SNAPSHOT_TO_EXTRACT" -C "$TARGET_PROJECT_ROOT"
+
+  echo -e "${GREEN}Snapshot restored successfully to: $TARGET_PROJECT_ROOT${NC}"
+
 elif [[ $SYNC_FROM == "chain" ]]; then
-  # we don't actually need to do anything here, but we can print a message since reth and lighthouse will start syncing on launch
   echo -e "${ORANGE}${BOLD}Sync mode:${NC} ${RED}${SYNC_FROM}${NC}."
 fi
 
