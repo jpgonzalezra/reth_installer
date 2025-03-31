@@ -25,6 +25,7 @@ PORT_RULES=(
   "9090 udp Lighthouse beacon"
   "9911 tcp Lighthouse beacon"
   "9911 udp Lighthouse beacon"
+  "6008 tcp Reth JSON-RPC"
   # "6007 tcp reth logs"
 )
 
