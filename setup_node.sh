@@ -46,7 +46,7 @@ else
   exit 1
 fi
 
-# 6) Download snapshots if needed
+# 5) Download snapshots if needed
 if [[ "$SYNC_FROM" == "merkle" ]]; then
   echo -e "${ORANGE}${BOLD}Sync mode:${NC} ${BLUE}merkle${NC}"
 
@@ -56,39 +56,26 @@ if [[ "$SYNC_FROM" == "merkle" ]]; then
   else
     # Download and extract snapshot
     echo -e "${ORANGE}${BOLD}Downloading snapshot...${NORMAL}"
-    local snapshot_url snapshot_file
-    snapshot_url=$("${parsed_dir}/scripts/download_snapshot.sh" --get-url-only)
-    if [[ $? -ne 0 ]]; then
-      log "${RED}Failed to determine snapshot URL${NC}"
-      exit 1
-    fi
-    snapshot_file="${TARGET_PROJECT_ROOT}/$(basename "$snapshot_url")"
+    
     if ! "${parsed_dir}/scripts/download_snapshot.sh"; then
       log "${RED}Snapshot download failed${NC}"
       exit 1
     fi
     echo -e "${GREEN}${BOLD}Snapshot Downloaded!${NORMAL}"
-
+    
     echo -e "${ORANGE}${BOLD}Extracting snapshot to:${NC} $TARGET_PROJECT_ROOT"
-    if [[ "$snapshot_file" =~ \.tar\.lz4$ ]]; then
-      if ! command -v lz4 &> /dev/null; then
-        echo "lz4 not found. Please install it (e.g., 'sudo apt install lz4')."
-        exit 1
-      fi
-      tar -I lz4 -xvf "$snapshot_file" -C "$TARGET_PROJECT_ROOT" || {
-        log "${RED}Failed to extract snapshot${NC}"
-        exit 1
-      }
-    else
-      log "${RED}Unsupported snapshot format: $snapshot_file${NC}"
+    tar -I lz4 -xvf "$snapshot_file" -C "$TARGET_PROJECT_ROOT" || {
+      log "${RED}Failed to extract snapshot${NC}"
       exit 1
-    fi
+    }
+    
     echo -e "${GREEN}Snapshot restored successfully to: $TARGET_PROJECT_ROOT${NC}"
   fi
 elif [[ "$SYNC_FROM" == "chain" ]]; then
   echo -e "${ORANGE}${BOLD}Sync mode:${NC} ${RED}chain${NC}"
 fi
 
+# 6) Starting services
 echo -e "${ORANGE}${BOLD}Starting reth & Lighthouse...${NORMAL}"
 if ! sudo "${parsed_dir}/scripts/setup_services.sh"; then
   log "${RED}Failed to start services.${NC}"

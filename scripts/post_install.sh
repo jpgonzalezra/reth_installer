@@ -15,8 +15,7 @@ BLUE='\033[1;34m'
 NC='\033[0m' # No Color
 
 # Get server's public IPv4
-public_ip=${PUBLIC_IP:-$(curl -s https://ipinfo.io/ip || echo "127.0.0.1")}
-[[ ! "$public_ip" =~ ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$ ]] && echo "Warning: Invalid IP detected: $public_ip"
+public_ip=$(curl -s https://ipinfo.io/ip || echo "127.0.0.1")
 
 # Reload systemd (in case new services were added)
 sudo /bin/systemctl daemon-reload
