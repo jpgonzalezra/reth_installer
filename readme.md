@@ -11,7 +11,6 @@ A modular and automated installer for deploying an Ethereum node using [Reth](ht
 4. **Creates data directories** for Reth and Lighthouse.
 5. **Downloads the correct binaries** of Reth and Lighthouse based on your OS and CPU architecture.
 6. **Extracts the binaries** into their respective folders.
-7. **Reboots the machine** once the system is ready.
 
 ### `setup_node.sh` (Node setup and launch)
 1. **Loads environment variables** from `.env` and default values.

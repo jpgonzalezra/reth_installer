@@ -12,7 +12,12 @@
 # Paths
 : "${TARGET_PROJECT_ROOT:=/$BASE_DIR/$NODE_CLIENT/data}"
 
-# Validate SYNC_FROM
+# Validations
+if [[ ! "$NETWORK" =~ ^(mainnet|sepolia|holesky)$ ]]; then
+  echo "Invalid NETWORK value '$NETWORK'. Defaulting to 'mainnet'"
+  NETWORK="mainnet"
+fi
+
 if [[ "$SYNC_FROM" != "merkle" && "$SYNC_FROM" != "chain" ]]; then
     SYNC_FROM="chain"
     echo "Invalid SYNC_FROM value. Defaulting to: chain"
