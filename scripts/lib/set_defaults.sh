@@ -3,7 +3,6 @@
 # Snapshot config
 : "${SYNC_FROM:=chain}"
 : "${SNAPSHOT_TYPE:=archive}"
-: "${SNAPSHOT_PATH:=}"
 
 # Ethereum config
 : "${NETWORK:=mainnet}"

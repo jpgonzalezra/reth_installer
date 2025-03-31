@@ -34,6 +34,7 @@ if [[ $? -eq 0 ]]; then
 else
   echo "Failed to resolve latest Merkle snapshot URL."
 fi
+
 # Create target dir
 mkdir -p "$TARGET_PROJECT_ROOT"
 
