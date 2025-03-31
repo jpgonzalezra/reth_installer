@@ -14,7 +14,7 @@ sudo /$BASE_DIR/lighthouse/lighthouse beacon_node \
   --http-port 5052 \
   --metrics \
   --metrics-address 0.0.0.0 \
-  --metrics-port 5005 \
+#   --metrics-port 5005 \
   --execution-endpoint http://localhost:8551 \
   --execution-jwt /$BASE_DIR/$NODE_CLIENT/data/jwt.hex \
   --checkpoint-sync-url https://mainnet-checkpoint-sync.stakely.io \

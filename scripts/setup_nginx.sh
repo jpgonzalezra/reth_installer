@@ -19,7 +19,7 @@ sudo systemctl start nginx
 echo "$NGINX_USER:$(openssl passwd -apr1 $NGINX_PASS)" | sudo tee /etc/nginx/.htpasswd
 
 # Use helper to generate proxies
-create_nginx_proxy "metrics-proxy" 6007 5005 ""
+# create_nginx_proxy "metrics-proxy" 6007 5005 ""
 create_nginx_proxy "rpc-http-proxy" 6008 8545 ""
 create_nginx_proxy "rpc-ws-proxy" 6009 8546 "proxy_http_version 1.1;
         proxy_set_header Upgrade \$http_upgrade;

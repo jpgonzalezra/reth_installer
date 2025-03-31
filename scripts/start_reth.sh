@@ -17,14 +17,13 @@ LOG_DIR="/${BASE_DIR}/${NODE_CLIENT}/logs"
 sudo RUST_LOG=info "$RETH_EXECUTABLE" node \
   --datadir="$DATA_DIR" \
   --chain=mainnet \
-  --metrics=5005 \
+# --metrics=5005 \
   --port=30303 \
   --http \
   --http.api="$RETH_FLAGS" \
   --ws \
-  --log.persistent \
-  --log.directory="$LOG_DIR" \
+  --log.file.directory="$LOG_DIR" \
   --ipcdisable \
-  --rpc-max-response-size=500 \
-  --rpc-max-connections=500 \
-  --rpc-max-tracing-requests=500
+  --rpc.max-response-size=500 \
+  --rpc.max-connections=500 \
+  --rpc.max-tracing-requests=500

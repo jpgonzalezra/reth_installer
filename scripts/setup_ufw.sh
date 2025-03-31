@@ -25,7 +25,7 @@ PORT_RULES=(
   "9090 udp Lighthouse beacon"
   "9911 tcp Lighthouse beacon"
   "9911 udp Lighthouse beacon"
-  "6007 tcp reth logs"
+  # "6007 tcp reth logs"
 )
 
 # Apply UFW rules for IPv4 and IPv6
